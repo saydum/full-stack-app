@@ -17,4 +17,4 @@ docker-compose up -d --build
 - frontend http://localhost:3000/employees
 
 # 3. Примеры
-![](static/sc_1.png))
+![](static/sc_1.png)
