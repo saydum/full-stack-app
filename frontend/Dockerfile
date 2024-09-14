@@ -1,20 +1,26 @@
-# frontend/Dockerfile
+# 1. Use the official Node.js image as the base image
 FROM node:latest
 
-# Устанавливаем рабочую директорию
+# 2. Set the working directory inside the container
 WORKDIR /app
 
-# Копируем package.json и package-lock.json для установки зависимостей
+# 3. Copy package.json and package-lock.json (or yarn.lock) to the working directory
 COPY package*.json ./
 
-# Устанавливаем зависимости
+# 4. Install dependencies (npm or yarn)
 RUN npm install
 
-# Копируем остальные файлы проекта
+# 5. Install Nuxt globally to be able to run nuxt commands
+RUN npm install -g nuxi
+
+# 6. Install TypeScript globally
+RUN npm install -g typescript
+
+# 7. Copy the rest of the project files to the working directory
 COPY . .
 
-# Собираем проект для production
-RUN npm run build
+# 8. Expose the port Nuxt.js will run on
+EXPOSE 3000
 
-# Запускаем Nuxt.js в режиме сервера
-CMD ["npm", "run", "start"]
+# 9. Build and run the Nuxt.js app
+CMD ["npm", "run", "dev"]
