@@ -2,7 +2,6 @@
   "compilerOptions": {
     "types": [
       "@nuxt/types",
-      "@nuxtjs/axios"
     ],
   },
   "extends": "./.nuxt/tsconfig.json"

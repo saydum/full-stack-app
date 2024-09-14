@@ -11,6 +11,8 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
+ENV DATABASE_URL=${DATABASE_URL}
+
 # Копируем приложение
 COPY . .
 
