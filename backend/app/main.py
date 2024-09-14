@@ -1,5 +1,6 @@
 import sys
 import os
+import logging
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from fastapi import FastAPI
@@ -14,10 +15,10 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # URL вашего Nuxt.js фронтенда
+    allow_origins=["*"],  # Разрешает все домены. Для продакшн-окружения укажите конкретные домены.
     allow_credentials=True,
-    allow_methods=["*"],  # Разрешить все методы (GET, POST, DELETE и т.д.)
-    allow_headers=["*"],  # Разрешить все заголовки
+    allow_methods=["*"],  # Разрешает все методы (GET, POST и т.д.)
+    allow_headers=["*"],  # Разрешает все заголовки
 )
 
 app.include_router(router, tags=["employee"])
