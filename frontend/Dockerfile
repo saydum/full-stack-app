@@ -22,5 +22,9 @@ COPY . .
 # 8. Expose the port Nuxt.js will run on
 EXPOSE 3000
 
-# 9. Build and run the Nuxt.js app
+# 9. Set environment variable to enable hot-reload
+ENV NUXT_HOST=0.0.0.0
+ENV NUXT_PORT=3000
+
+# 10. Run the development server with hot-reload
 CMD ["npm", "run", "dev"]

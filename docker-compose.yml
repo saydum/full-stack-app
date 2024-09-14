@@ -2,14 +2,23 @@ version: "3.3"
 
 services:
   frontend:
+    container_name: "frontend_nuxt"
     build:
       context: ./frontend
     ports:
       - "3000:3000"
     networks:
       - app-network
+    volumes:
+      - ./frontend:/app          # Монтируем код проекта для отслеживания изменений
+      - /app/node_modules         # Избегаем конфликтов с node_modules на хостовой машине
+    environment:
+      NUXT_HOST: 0.0.0.0          # Указываем хост для корректной работы в Docker
+      NUXT_PORT: 3000             # Указываем порт
+    command: npm run dev  
 
   backend:
+    container_name: "backend_fastapi"
     build:
       context: ./backend
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
@@ -25,6 +34,7 @@ services:
       - app-network
 
   db:
+    container_name: "db_for_fastapi"
     image: postgres:13
     restart: always
     environment:
