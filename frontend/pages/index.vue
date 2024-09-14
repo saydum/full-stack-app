@@ -50,7 +50,7 @@ onMounted(() => {
                 <!-- <tr v-for="employee in employees" :key="employee.id">
                     <th scope="row">{{ employee.id }}</th>
                     <td>{{ employee.name }}</td>
-                    <td>{{ {{ employee.salary }} }}</td>
+                    <td>{{ employee.salary }}</td>
                     <td class="text-end">
                         <button @click="removeEmployee(employee.id)" class="btn btn-danger m-1">Remove</button>
                     </td>
