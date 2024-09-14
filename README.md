@@ -17,4 +17,4 @@ docker-compose up -d --build
 - frontend http://localhost:3000/employees
 
 # 3. Примеры
-![](https://github.com/saydum/full-stack-app/static/sc_1.png)
+![]([https://github.com/saydum/full-stack-app/static/sc_1.png](https://raw.githubusercontent.com/saydum/full-stack-app/main/static/sc_1.png))
